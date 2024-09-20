@@ -12,7 +12,7 @@ public class WaterSpawner : MonoBehaviour
     void Start()
     {
         // Store the initial spawn position
-        spawnPosition = transform.position;
+        spawnPosition = transform.position + Vector3.up * 0.15f;
 
         // Spawn the initial water object
         SpawnWater();
@@ -22,6 +22,8 @@ public class WaterSpawner : MonoBehaviour
     private void SpawnWater()
     {
         currentWater = Instantiate(waterPrefab, spawnPosition, Quaternion.identity);
+        // Assign ourselves as the water spawner that belongs to this water
+        currentWater.GetComponent<PickUpWater>().ws = this;
     }
 
     // This method is called when the water is collected/destroyed

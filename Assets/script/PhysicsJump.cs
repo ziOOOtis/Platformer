@@ -33,8 +33,6 @@ public class PhysicsJump : MonoBehaviour
 
     void Update()
     {
-        GetWater();
-
         if (UnityEngine.Input.GetButtonUp("Jump"))
         {
             if (jumpChance > 0)
@@ -96,9 +94,10 @@ public class PhysicsJump : MonoBehaviour
         }
     }
 
-    void GetWater()
+    public void GetWater(PickUpWater waterPicked)
     {
-        if (puw.getWater)
+        puw = waterPicked;
+        if (puw != null && puw.getWater)
         {
             waterJumpChance++;
             puw.getWater = false;

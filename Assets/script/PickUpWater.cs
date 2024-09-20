@@ -43,7 +43,7 @@ using UnityEngine;
 public class PickUpWater : MonoBehaviour
 {
 
-    [SerializeField] private WaterSpawner ws;
+    public WaterSpawner ws;
     public bool getWater = false;
 
     void Start()
@@ -60,11 +60,13 @@ public class PickUpWater : MonoBehaviour
             Debug.Log("Water Collected!");
             getWater = true;
 
+            // Notify the WaterSpawner to respawn the water after a delay
+            ws.WaterCollected();
+            other.GetComponent<PhysicsJump>().GetWater(this);
+
             // Destroy the water object
             Destroy(gameObject);
 
-            // Notify the WaterSpawner to respawn the water after a delay
-            ws.WaterCollected();
         }
     }
 }
