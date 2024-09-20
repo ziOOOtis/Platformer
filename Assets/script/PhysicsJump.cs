@@ -4,7 +4,6 @@ using UnityEngine.Windows;
 
 public class PhysicsJump : MonoBehaviour
 {
-    [SerializeField] float jumpForce = 2f; // Force applied for jump
     [SerializeField] float normalJumpHeight = 1.5f; // Normal jump height
     private float jumpHeight; // Current jump height
     [SerializeField] private float waterJumpForceMultiplier = 1.5f; // For higher jump on waterJump
@@ -12,17 +11,16 @@ public class PhysicsJump : MonoBehaviour
 
 
     public bool isGround = false;
-    public int jumpChance = 2; // Max number of jumps allowed
+    public int jumpChance = 1; // Max number of jumps allowed
     [SerializeField] private LayerMask groundLayer; // Specify ground
     [SerializeField] private int maxJumpChance = 3; // Maximum jumps
-    [SerializeField] public int waterJumpChance = 1; // Water jump chance
+    [SerializeField] public int waterJumpChance = 0; // Water jump chance
     public PickUpWater puw;
+    public WarmAirDamage wad;
 
 
     public bool isWaterJumping = false; // Flag for water jump
 
-    private bool isHoldingJump = false; // Flag to check if player is holding jump
-    private bool isFrozenInMidAir = false; // Track if the player is frozen mid-air 
 
     void Start()
     {
@@ -33,48 +31,48 @@ public class PhysicsJump : MonoBehaviour
 
     void Update()
     {
-        // Check input in Update to handle user interaction
-        if (UnityEngine.Input.GetButton("Jump") && waterJumpChance > 0 && !isGround && !isFrozenInMidAir)
+        if (UnityEngine.Input.GetButtonUp("Jump"))
         {
-            isHoldingJump = true; // Set holding jump to true
-        }
+            if (jumpChance > 0)
+            {
+                Jump(1);
+                isGround = false;
+                jumpChance--;
+                //Debug.Log("Jump Chances Remaining: " + jumpChance);
+            }
+            else
+            {
+                if (waterJumpChance > 0) //&& (UnityEngine.Input.GetButtonUp("Jump") )
+                {
+                    if (UnityEngine.Input.GetButton("Jump")) //freeze
+                    {
+                        rb.constraints = RigidbodyConstraints.FreezePosition | RigidbodyConstraints.FreezeRotation;
 
-        if (UnityEngine.Input.GetButtonUp("Jump") && isFrozenInMidAir)
-        {
-            // When the player releases the button, execute water jump
-            rb.isKinematic = false; // Re-enable physics
-            Jump(1.5f); // Perform water jump with higher force
-            isWaterJumping = true; // Start water jump state
-            waterJumpChance--; // Decrease water jump chance
-            isFrozenInMidAir = false; // Reset the freeze flag
-            isHoldingJump = false; // Reset holding flag
 
-            Debug.Log("Water jump performed.");
-        }
+                    }
 
-        if (puw.getWater = true)
-        {
-            waterJumpChance++;
-            puw.getWater = false;
-            Debug.Log("WaterJump Chances Remaining: " + waterJumpChance);
+                    if (UnityEngine.Input.GetButtonUp("Jump")) //&& ( )
+                    {
+                        rb.constraints = RigidbodyConstraints.None; // Remove constraints to allow full movement
+                        Jump(1.5f);
+                        isWaterJumping = true; // Start water jump rotation
+
+                        isGround = false;
+                        waterJumpChance--;
+
+                        Debug.Log("WaterJump Chances Remaining: " + waterJumpChance);
+
+                    }
+
+                }
+            }
+
+
+
         }
     }
 
-    void FixedUpdate()
-    {
-        // Freeze the player in mid-air during water jump
-        if (isHoldingJump && !isFrozenInMidAir)
-        {
-            rb.linearVelocity = Vector3.zero; // Stop any movement
-            rb.isKinematic = true; // Freeze the Rigidbody
-            isFrozenInMidAir = true; // Set the freeze flag
-            Debug.Log("Frozen mid-air for water jump.");
-        }
-
-
-    }
-
-    private void Jump(float speedMultiplier)
+        private void Jump(float speedMultiplier)
     {
         Vector3 jumpVelocity = new Vector3(0, Mathf.Sqrt(jumpHeight * -2f * Physics.gravity.y), 0);
         rb.linearVelocity = jumpVelocity * speedMultiplier; // Apply jump force based on multiplier
@@ -82,27 +80,43 @@ public class PhysicsJump : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (IsGrounded())
+        if (IsGrounded(collision))
         {
             isGround = true;
             isWaterJumping = false;
             jumpChance = maxJumpChance; // Reset to max jumps when landing
             jumpHeight = normalJumpHeight; // Reset jump height to normal
 
-            Debug.Log("Jump Chances Remaining: " + jumpChance);
+
+
         }
     }
 
-    private void WaterJumpPlus() 
+    public void GetWater(PickUpWater waterPicked)
     {
-
+        puw = waterPicked;
+        if (puw != null && puw.getWater)
+        {
+            waterJumpChance++;
+            puw.getWater = false;
+            Debug.Log("WaterJump Chances Remaining: " + waterJumpChance);
+        }
     }
 
-
-    private bool IsGrounded()
+    public void LostWater(WarmAirDamage waterLosted)
     {
-        RaycastHit hit;
-        bool result = Physics.SphereCast(transform.position, 0.15f, -transform.up, out hit, 1f);
-        return result;
+        wad = waterLosted;
+        if (wad != null && wad.lostWater)
+        {
+            waterJumpChance--;
+            wad.lostWater = false;
+            Debug.Log("WaterJump Chances Remaining: " + waterJumpChance);
+        }
+    }
+
+    private bool IsGrounded(Collision collision)
+    {
+        // Check if the object has the ground layer
+        return (groundLayer.value & (1 << collision.gameObject.layer)) > 0;
     }
 }
