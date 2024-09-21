@@ -10,14 +10,16 @@ public class Timer : MonoBehaviour
     [SerializeField] Image fill;
 
     public float heatingTime;
+    [SerializeField] float maxHeatTime = 20;
     public bool countUp;
+    public int heatStatus;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         slider.minValue = 0;
-        slider.maxValue = 20;
+        slider.maxValue = maxHeatTime;
 
         fill.color = gradient.Evaluate(0); //set the color of beginning.
     }
@@ -27,12 +29,23 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        HeatingUp();
+        if (heatingTime <= 20)
+        {
+            HeatingUp();
+            HeatingStatus();
+        }
+        else
+        {
+            heatingTime = countUp ? heatingTime += Time.deltaTime : heatingTime;
+            Debug.Log("ON FIRE!!!!");
+            countUp = false;
+
+        }
 
         // Different color of status
         fill.color = gradient.Evaluate(slider.normalizedValue); // make the value 0-1.
 
-        //the pan is not heat enough
+        
 
 
     }
@@ -41,5 +54,18 @@ public class Timer : MonoBehaviour
     {
         heatingTime = countUp ? heatingTime += Time.deltaTime : heatingTime;
         slider.value = heatingTime;
+    }
+
+    public void HeatingStatus()
+    {
+        if (slider.normalizedValue < 0.4f)
+        {
+            heatStatus = 1; //the pan is not heat enough
+        }
+        else if(slider.normalizedValue > 0.75)
+        {
+            heatStatus = 3; //the pan is heat good!
+        }
+        else { heatStatus = 2; } //the pan is heat enough
     }
 }

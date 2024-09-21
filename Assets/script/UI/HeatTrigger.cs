@@ -6,12 +6,14 @@ public class HeatTrigger : MonoBehaviour
     public GameObject trigger;
     public Timer tm;
 
+    [SerializeField] private BoxCollider bc;
+
     public bool turOn;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        
+        bc = GetComponent<BoxCollider>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -23,8 +25,6 @@ public class HeatTrigger : MonoBehaviour
 
             tm.countUp = true;
             tm.HeatingUp();
-
-
 
 
         }

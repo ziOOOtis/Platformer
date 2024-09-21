@@ -17,6 +17,7 @@ public class PhysicsJump : MonoBehaviour
     [SerializeField] public int waterJumpChance = 0; // Water jump chance
     public PickUpWater puw;
     public WarmAirDamage wad;
+    public FryZone fz;
 
 
     public bool isWaterJumping = false; // Flag for water jump
@@ -106,15 +107,30 @@ public class PhysicsJump : MonoBehaviour
     public void LostWater(WarmAirDamage waterLosted)
     {
         wad = waterLosted;
+
         if (wad != null && wad.lostWater)
         {
             waterJumpChance--;
             wad.lostWater = false;
             Debug.Log("WaterJump Chances Remaining: " + waterJumpChance);
         }
+
     }
 
-    private bool IsGrounded(Collision collision)
+    public void LostWater(FryZone waterCooked)
+    {
+
+        fz = waterCooked;
+        if (fz != null && fz.waterCooked)
+        {
+            waterJumpChance-= fz.cookDuration;
+            fz.waterCooked = false;
+            Debug.Log("Water Remaining: " + waterJumpChance);
+
+        }
+     }
+
+private bool IsGrounded(Collision collision)
     {
         // Check if the object has the ground layer
         return (groundLayer.value & (1 << collision.gameObject.layer)) > 0;
