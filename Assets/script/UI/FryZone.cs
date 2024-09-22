@@ -1,3 +1,4 @@
+using System.Drawing;
 using Unity.VisualScripting;
 using UnityEngine;
 using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
@@ -9,6 +10,11 @@ public class FryZone : MonoBehaviour
     public Timer tm;
     public HeatTrigger trigger;
 
+    // [SerializeField] Gradient gradient;
+
+    // [SerializeField] MeshRenderer rend;
+
+    public bool isCooking;
     public bool waterCooked;
     public int cookDuration; // well-heated pan will have less cook duration, so that less water will be losted.
 
@@ -18,19 +24,26 @@ public class FryZone : MonoBehaviour
     void Start()
     {
         waterCooked=false;  
+
+        //rend = GetComponent<MeshRenderer>();
+ 
+
+
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        //rend.material.SetColor("Color", gradient.Evaluate(tm.slider.normalizedValue));
     }
 
 
     private void OnTriggerEnter(Collider other)
     {
+        
         if ((other.gameObject.tag == "Player") && trigger.turOn)
         {
+            isCooking = true;
             switch (tm.heatStatus)
             {
 

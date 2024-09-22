@@ -5,6 +5,7 @@ public class HeatTrigger : MonoBehaviour
     //id the trigger and the number it exist
     public GameObject trigger;
     public Timer tm;
+    public GameObject jumpScoreZone;
 
     [SerializeField] private BoxCollider bc;
 
@@ -14,6 +15,7 @@ public class HeatTrigger : MonoBehaviour
     void Start()
     {
         bc = GetComponent<BoxCollider>();
+        jumpScoreZone.gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -25,6 +27,8 @@ public class HeatTrigger : MonoBehaviour
 
             tm.countUp = true;
             tm.HeatingUp();
+            jumpScoreZone.gameObject.SetActive(true);
+
 
 
         }

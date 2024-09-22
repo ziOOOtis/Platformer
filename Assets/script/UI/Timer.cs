@@ -37,8 +37,9 @@ public class Timer : MonoBehaviour
         else
         {
             heatingTime = countUp ? heatingTime += Time.deltaTime : heatingTime;
+            //heatingTime = countUp ? heatingTime += Time.deltaTime : heatingTime;
             Debug.Log("ON FIRE!!!!");
-            countUp = false;
+            enabled = false; // stop the component runing
 
         }
 

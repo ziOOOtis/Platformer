@@ -61,7 +61,7 @@ public class PhysicsJump : MonoBehaviour
                         isGround = false;
                         waterJumpChance--;
 
-                        Debug.Log("WaterJump Chances Remaining: " + waterJumpChance);
+                        //Debug.Log("WaterJump Chances Remaining: " + waterJumpChance);
 
                     }
 
@@ -100,7 +100,7 @@ public class PhysicsJump : MonoBehaviour
         {
             waterJumpChance++;
             puw.getWater = false;
-            Debug.Log("WaterJump Chances Remaining: " + waterJumpChance);
+            //Debug.Log("WaterJump Chances Remaining: " + waterJumpChance);
         }
     }
 
@@ -112,7 +112,7 @@ public class PhysicsJump : MonoBehaviour
         {
             waterJumpChance--;
             wad.lostWater = false;
-            Debug.Log("WaterJump Chances Remaining: " + waterJumpChance);
+            //Debug.Log("WaterJump Chances Remaining: " + waterJumpChance);
         }
 
     }
@@ -125,7 +125,7 @@ public class PhysicsJump : MonoBehaviour
         {
             waterJumpChance-= fz.cookDuration;
             fz.waterCooked = false;
-            Debug.Log("Water Remaining: " + waterJumpChance);
+            //Debug.Log("Water Remaining: " + waterJumpChance);
 
         }
      }

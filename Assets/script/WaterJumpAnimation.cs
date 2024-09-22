@@ -22,7 +22,7 @@ public class WaterJumpAnimation : MonoBehaviour
             if (UnityEngine.Input.GetButton("Jump"))
             {
                 animator.SetBool("Squeeze", true);
-                Debug.Log("Squeeze");
+                //Debug.Log("Squeeze");
             }
             else
             {
@@ -32,7 +32,7 @@ public class WaterJumpAnimation : MonoBehaviour
         if (pj.isWaterJumping == true)
         {
             animator.SetBool("isWaterJumping", true);
-            Debug.Log("waterJumping");
+            //Debug.Log("waterJumping");
         }
         else
         {
