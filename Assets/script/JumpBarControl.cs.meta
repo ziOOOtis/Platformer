@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: 34c441063f75eed4e9941e8051b59fe4
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - Jump1: {fileID: 8718743726204383124, guid: 72145cbe5458aa745addc0747d713475, type: 3}
+  - Jump2: {fileID: 918340982281038009, guid: 7ae66f7aaa3f5a24e94ffd0abf2cfe16, type: 3}
+  - Jump3: {fileID: 4246597611585099154, guid: 9965108825ab7394e99cbb56b8a45c06, type: 3}
+  - Jump4: {fileID: 826439022793061974, guid: 169f3d41fdb447749a4fa80225231a42, type: 3}
+  - pj: {fileID: 8008297870717287062, guid: 4729b701f8a44f54cae27bdd04f77e56, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

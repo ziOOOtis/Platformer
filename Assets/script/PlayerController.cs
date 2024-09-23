@@ -5,13 +5,13 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] private Rigidbody _rb;
     [SerializeField] private float _speed = 5;
-    [SerializeField] private float _turnSpeed = 360;
+    [SerializeField] public float _turnSpeed = 360;
     [SerializeField] private float jumpSpeed;
     [SerializeField] private float ySpeed;
     Vector3 isometricDirection;
     float magnitude;
 
-    private Vector3 _input;
+    public Vector3 _input;
 
     private void Start()
     {
