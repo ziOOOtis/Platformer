@@ -2,6 +2,7 @@ using System.Data;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 public class Timer : MonoBehaviour
 {
@@ -39,6 +40,7 @@ public class Timer : MonoBehaviour
             heatingTime = countUp ? heatingTime += Time.deltaTime : heatingTime;
             //heatingTime = countUp ? heatingTime += Time.deltaTime : heatingTime;
             Debug.Log("ON FIRE!!!!");
+            countUp = false;
             enabled = false; // stop the component runing
 
         }

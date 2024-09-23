@@ -16,6 +16,8 @@ public class SuperBouncy : MonoBehaviour
     [SerializeField] private float stretchDuration = 0.3f; // How fast the squeeze/stretch happens
 
 
+    public TimeManager timeManager;
+
     private void Start()
     {
         rb = GetComponent<Rigidbody>();
@@ -37,6 +39,8 @@ public class SuperBouncy : MonoBehaviour
             {
                 // Apply an upward force to the player's Rigidbody
                 playerRb.AddForce(Vector3.up * bounceForce, ForceMode.Impulse);
+
+                timeManager.DoSLowmotion(0.2f); //try to slow down.
 
                 // Trigger squeeze and stretch effect
                 StartCoroutine(SqueezeAndStretch());

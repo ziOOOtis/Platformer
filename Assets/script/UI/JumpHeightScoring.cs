@@ -7,6 +7,8 @@ public class JumpHeightScoring : MonoBehaviour
     public FryZone fz;
     public GameObject heightScore;
 
+    public TimeManager timeManager;
+
 
     public float highestY;    // Stores the highest Y position during jump
     private bool isInZone;     // To check if the player is in the scoring zone
@@ -17,6 +19,7 @@ public class JumpHeightScoring : MonoBehaviour
         {
             // Player entered the scoring zone
             heightScore.gameObject.SetActive(true);
+            timeManager.DoSLowmotion(0.1f); //try to slow down.
 
             isInZone = true;
             highestY = player.position.y; // Initialize with current height

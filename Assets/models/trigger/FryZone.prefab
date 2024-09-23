@@ -68,6 +68,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fryZone: {fileID: 662859038467533218}
   tm: {fileID: 0}
-  trigger: {fileID: 0}
+  trigger: {fileID: 6358001905295693601, guid: b869be7f65a06f94aa3dbd730df0c713, type: 3}
+  isCooking: 0
   waterCooked: 0
   cookDuration: 0

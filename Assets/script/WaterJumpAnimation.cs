@@ -24,7 +24,7 @@ public class WaterJumpAnimation : MonoBehaviour
                 animator.SetBool("Squeeze", true);
                 //Debug.Log("Squeeze");
             }
-            else
+            else if (UnityEngine.Input.GetButtonUp("Jump"))
             {
                 animator.SetBool("Squeeze", false);
             }
