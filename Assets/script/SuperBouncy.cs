@@ -37,10 +37,11 @@ public class SuperBouncy : MonoBehaviour
 
             if (playerRb != null)
             {
+                timeManager.DoSLowmotion(0.2f); //try to slow down.
+
                 // Apply an upward force to the player's Rigidbody
                 playerRb.AddForce(Vector3.up * bounceForce, ForceMode.Impulse);
 
-                timeManager.DoSLowmotion(0.2f); //try to slow down.
 
                 // Trigger squeeze and stretch effect
                 StartCoroutine(SqueezeAndStretch());
