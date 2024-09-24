@@ -1,4 +1,6 @@
 using UnityEngine;
+using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class JumpHeightScoring : MonoBehaviour
 {
@@ -7,12 +9,20 @@ public class JumpHeightScoring : MonoBehaviour
     public FryZone fz;
     public GameObject heightScore;
 
-    public TimeManager timeManager;
+    public TimeManager timeManager;//slower time
+
+    float waitingTimes = 5f;
+
 
 
     public float highestY;    // Stores the highest Y position during jump
     private bool isInZone;     // To check if the player is in the scoring zone
+    public int score;
 
+    private void Start()
+    {
+        DontDestroyOnLoad(gameObject);
+    }
     void OnTriggerEnter(Collider other)
     {
         if (other.gameObject.tag == "Player")
@@ -45,8 +55,9 @@ public class JumpHeightScoring : MonoBehaviour
             // Implement score calculation or end game logic here
             CalculateScore(highestY);
             fz.isCooking = false;
+            StartCoroutine(LoadToEnd());
 
-          
+
         }
     }
 
@@ -60,6 +71,7 @@ public class JumpHeightScoring : MonoBehaviour
 
             // Implement score calculation or end game logic here
             CalculateScore(highestY);
+
         }
     }
 
@@ -67,7 +79,19 @@ public class JumpHeightScoring : MonoBehaviour
     {
         // Score or reward logic based on height
         // For example, higher height gives higher score:
-        int score = Mathf.FloorToInt(height * 10); // Example scoring system
+        score = Mathf.FloorToInt(height * 10); // Example scoring system
+        GameManager.SetHeightScore(score);
+
         Debug.Log("Final Score: " + score);
     }
+
+    private IEnumerator LoadToEnd()
+    {
+        yield return new WaitForSeconds(waitingTimes);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+
+
+
 }

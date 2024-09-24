@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 using UnityEngine.Windows;
 
@@ -11,6 +12,7 @@ public class PhysicsJump : MonoBehaviour
 
 
     public bool isGround = false;
+    float jumpIndex;
     public int jumpChance = 1; // Max number of jumps allowed
     [SerializeField] private LayerMask groundLayer; // Specify ground
     [SerializeField] private int maxJumpChance = 3; // Maximum jumps
@@ -37,6 +39,7 @@ public class PhysicsJump : MonoBehaviour
             if (jumpChance > 0)
             {
                 Jump(1);
+                jumpIndex++;
                 isGround = false;
                 jumpChance--;
                 //Debug.Log("Jump Chances Remaining: " + jumpChance);
@@ -126,7 +129,8 @@ public class PhysicsJump : MonoBehaviour
             waterJumpChance-= fz.cookDuration;
             fz.waterCooked = false;
             //Debug.Log("Water Remaining: " + waterJumpChance);
-
+            GameManager.SetWatertScore(waterJumpChance);
+            GameManager.SetJumpScore(jumpIndex);
         }
      }
 

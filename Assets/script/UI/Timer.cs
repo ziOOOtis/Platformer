@@ -2,7 +2,6 @@ using System.Data;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
-using static UnityEditor.Experimental.AssetDatabaseExperimental.AssetDatabaseCounters;
 
 public class Timer : MonoBehaviour
 {
