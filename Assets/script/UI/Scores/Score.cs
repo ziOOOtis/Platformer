@@ -6,11 +6,11 @@ public class Score : MonoBehaviour
 {
     float finalHeight;
     int waterChance;
-    float jumpIndex;
+    int spiceIndex;
     int finaltotal;
     public TextMeshProUGUI heightScore;
     public TextMeshProUGUI waterScore;
-    public TextMeshProUGUI jumpScore;
+    public TextMeshProUGUI spiceScore;
     public TextMeshProUGUI totalScore;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -18,7 +18,7 @@ public class Score : MonoBehaviour
     {
         finalHeight = GameManager.GetHeightScore();
         waterChance = GameManager.GetWaterScore();
-        jumpIndex = GameManager.GetJumpScore();
+        //jumpIndex = GameManager.GetJumpScore();
 
     }
 
@@ -27,7 +27,7 @@ public class Score : MonoBehaviour
     {
         heightScore.text = finalHeight.ToString();
         waterScore.text = waterChance.ToString();
-        jumpScore.text = jumpIndex.ToString();
+        //jumpScore.text = jumpIndex.ToString();
         Calculation();
         // Display the total score
         totalScore.text = finaltotal.ToString();
@@ -37,7 +37,7 @@ public class Score : MonoBehaviour
 
     void Calculation()
     {
-        finaltotal = Mathf.FloorToInt(finalHeight + jumpIndex) + waterChance;
+        finaltotal = Mathf.FloorToInt(finalHeight ) + waterChance;//+spice
 
     }
 }

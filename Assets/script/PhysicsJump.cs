@@ -17,7 +17,9 @@ public class PhysicsJump : MonoBehaviour
     [SerializeField] private LayerMask groundLayer; // Specify ground
     [SerializeField] private int maxJumpChance = 3; // Maximum jumps
     [SerializeField] public int waterJumpChance = 0; // Water jump chance
+    [SerializeField] public int waterIndex = 0;// Totoal Water jump chance
     public PickUpWater puw;
+    public Spice spice;
     public WarmAirDamage wad;
     public FryZone fz;
 
@@ -102,7 +104,21 @@ public class PhysicsJump : MonoBehaviour
         if (puw != null && puw.getWater)
         {
             waterJumpChance++;
+            waterIndex++;
             puw.getWater = false;
+            //Debug.Log("WaterJump Chances Remaining: " + waterJumpChance);
+        }
+    }
+
+    public void GetSpice(Spice spicePicked)
+    {
+        spice = spicePicked;
+        if (spice != null && spice.getSpice)
+        {
+            waterJumpChance--;
+            maxJumpChance++;
+
+            spice.getSpice = false;
             //Debug.Log("WaterJump Chances Remaining: " + waterJumpChance);
         }
     }
@@ -114,6 +130,7 @@ public class PhysicsJump : MonoBehaviour
         if (wad != null && wad.lostWater)
         {
             waterJumpChance--;
+            waterIndex--;
             wad.lostWater = false;
             //Debug.Log("WaterJump Chances Remaining: " + waterJumpChance);
         }
@@ -127,10 +144,11 @@ public class PhysicsJump : MonoBehaviour
         if (fz != null && fz.waterCooked)
         {
             waterJumpChance-= fz.cookDuration;
+            waterIndex -= fz.cookDuration;
             fz.waterCooked = false;
             //Debug.Log("Water Remaining: " + waterJumpChance);
             GameManager.SetWatertScore(waterJumpChance);
-            GameManager.SetJumpScore(jumpIndex);
+            
         }
      }
 

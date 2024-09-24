@@ -4,7 +4,7 @@ public class GameManager : MonoBehaviour
 {
     public static float heightScore;
     public static int waterScore;
-    public static float jumpScore;
+    public static int spiceScore;
 
     // This method is called when the player reaches the goal and records the height
     public static void SetHeightScore(float height)
@@ -29,16 +29,18 @@ public class GameManager : MonoBehaviour
         return waterScore;
     }
 
-    public static void SetJumpScore(float jump)
+    public static void SetSpiceScore(int spice)
     {
-        jumpScore = Mathf.FloorToInt(jump * 5); ;
+        spiceScore = spice;
     }
 
     // This method can be used in the end scene to retrieve the stored height score
-    public static float GetJumpScore()
+    public static int GetSpiceScore()
     {
-        return jumpScore;
+        return spiceScore;
     }
+
+
 
 
 }
