@@ -1,7 +1,10 @@
 using System.Data;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using System.Collections;
+
 
 public class Timer : MonoBehaviour
 {
@@ -13,6 +16,8 @@ public class Timer : MonoBehaviour
     [SerializeField] float maxHeatTime = 20;
     public bool countUp;
     public int heatStatus;
+
+    float waitingTimes = 2f;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -41,6 +46,7 @@ public class Timer : MonoBehaviour
             Debug.Log("ON FIRE!!!!");
             countUp = false;
             enabled = false; // stop the component runing
+            StartCoroutine(LoadToEnd());
 
         }
 
@@ -69,5 +75,11 @@ public class Timer : MonoBehaviour
             heatStatus = 3; //the pan is heat good!
         }
         else { heatStatus = 2; } //the pan is heat enough
+    }
+
+    private IEnumerator LoadToEnd()
+    {
+        yield return new WaitForSeconds(waitingTimes);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
