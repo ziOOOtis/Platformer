@@ -4,7 +4,7 @@ using UnityEngine;
 public class JumpBarControl : MonoBehaviour
 {
     // Transform Jump1, Jump2, Jump3, Jump4;
-    [SerializeField] public GameObject Jump1, Jump2, Jump3, Jump4, Jump5, Locker1, Locker2;
+    [SerializeField] public GameObject Jump1, Jump2, Jump3, Jump4, Jump5, Locker,Locker1, Locker2;
 
     public PhysicsJump pj;
     int spice;
@@ -21,6 +21,7 @@ public class JumpBarControl : MonoBehaviour
         Jump3.gameObject.SetActive(false);
         Jump4.gameObject.SetActive(false);
         Jump5.gameObject.SetActive(false);
+        Locker.gameObject.SetActive(true);//
         Locker1.gameObject.SetActive(false);
         Locker2.gameObject.SetActive(false);
 

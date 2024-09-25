@@ -7,6 +7,7 @@ public class Score : MonoBehaviour
     float finalHeight;
     int waterChance;
     int spiceIndex;
+    int finalSpice;
     int finaltotal;
     public TextMeshProUGUI heightScore;
     public TextMeshProUGUI waterScore;
@@ -18,7 +19,8 @@ public class Score : MonoBehaviour
     {
         finalHeight = GameManager.GetHeightScore();
         waterChance = GameManager.GetWaterScore();
-        //jumpIndex = GameManager.GetJumpScore();
+        spiceIndex = GameManager.GetSpiceScore();
+        finalSpice = spiceIndex * 15;
 
     }
 
@@ -27,7 +29,7 @@ public class Score : MonoBehaviour
     {
         heightScore.text = finalHeight.ToString();
         waterScore.text = waterChance.ToString();
-        //jumpScore.text = jumpIndex.ToString();
+        spiceScore.text = finalSpice.ToString();
         Calculation();
         // Display the total score
         totalScore.text = finaltotal.ToString();
@@ -37,7 +39,7 @@ public class Score : MonoBehaviour
 
     void Calculation()
     {
-        finaltotal = Mathf.FloorToInt(finalHeight ) + waterChance;//+spice
+        finaltotal = Mathf.FloorToInt(finalHeight ) + waterChance + finalSpice;//+spice
 
     }
 }

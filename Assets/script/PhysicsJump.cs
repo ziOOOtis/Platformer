@@ -65,6 +65,7 @@ public class PhysicsJump : MonoBehaviour
 
                         isGround = false;
                         waterJumpChance--;
+                        waterIndex--;
 
                         //Debug.Log("WaterJump Chances Remaining: " + waterJumpChance);
 
@@ -144,10 +145,10 @@ public class PhysicsJump : MonoBehaviour
         if (fz != null && fz.waterCooked)
         {
             waterJumpChance-= fz.cookDuration;
-            waterIndex -= fz.cookDuration;
+            waterIndex -= (fz.cookDuration - 1);
             fz.waterCooked = false;
             //Debug.Log("Water Remaining: " + waterJumpChance);
-            GameManager.SetWatertScore(waterJumpChance);
+            GameManager.SetWatertScore(waterIndex);
             
         }
      }

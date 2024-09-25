@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3713091425307844578}
   - component: {fileID: 354495937681530711}
   - component: {fileID: 6358001905295693601}
+  - component: {fileID: -6483781521031473581}
   m_Layer: 0
   m_Name: switch
   m_TagString: Untagged
@@ -66,6 +67,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
+  - {fileID: 2100000, guid: 6a6944f4904547e4fb039789da5fcd85, type: 2}
   - {fileID: 2100000, guid: 6a6944f4904547e4fb039789da5fcd85, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
@@ -125,4 +127,28 @@ MonoBehaviour:
   tm: {fileID: 0}
   jumpScoreZone: {fileID: 0}
   bc: {fileID: 354495937681530711}
+  timeManager: {fileID: 0}
+  animator: {fileID: -6483781521031473581}
   turOn: 0
+--- !u!95 &-6483781521031473581
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4356680313030556239}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: d692fc997e79cda47aea8ccffc4dae60, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0

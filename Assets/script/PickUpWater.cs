@@ -6,6 +6,7 @@ public class PickUpWater : MonoBehaviour
 {
 
     public WaterSpawner ws;
+    [SerializeField]private bool isSingle;
     public bool getWater = false;
 
     void Start()
@@ -21,8 +22,11 @@ public class PickUpWater : MonoBehaviour
 
             getWater = true;
 
-            // Notify the WaterSpawner to respawn the water after a delay
-            ws.WaterCollected();
+
+                // Notify the WaterSpawner to respawn the water after a delay
+                ws.WaterCollected();
+     
+
             other.GetComponent<PhysicsJump>().GetWater(this);
 
             // Destroy the water object

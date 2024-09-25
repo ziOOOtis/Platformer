@@ -4,6 +4,8 @@ using UnityEngine.InputSystem;
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private Rigidbody _rb;
+    [SerializeField] private MeshFilter filter;
+    [SerializeField] private Mesh cookedMesh;
     [SerializeField] private float _speed = 5;
     [SerializeField] public float _turnSpeed = 360;
     [SerializeField] private float jumpSpeed;
@@ -24,6 +26,7 @@ public class PlayerController : MonoBehaviour
         Look(); // Smoothly rotate towards movement direction (visual)
         magnitude = _input.magnitude;
         magnitude = Mathf.Clamp01(magnitude);
+        //filter.mesh = cookedMesh;
 
     }
 
