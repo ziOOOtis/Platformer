@@ -18,6 +18,7 @@ public class JumpHeightScoring : MonoBehaviour
     public float highestY;    // Stores the highest Y position during jump
     private bool isInZone;     // To check if the player is in the scoring zone
     public int score;
+    public bool haveUsed = false;
 
     private void Start()
     {
@@ -25,7 +26,7 @@ public class JumpHeightScoring : MonoBehaviour
     }
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
+        if (other.gameObject.tag == "Player" && haveUsed == false)
         {
             // Player entered the scoring zone
             heightScore.gameObject.SetActive(true);
@@ -39,7 +40,7 @@ public class JumpHeightScoring : MonoBehaviour
 
     void OnTriggerStay(Collider other)
     {
-        if (isInZone && other.gameObject.tag == "Player")
+        if (isInZone && other.gameObject.tag == "Player" && haveUsed == false )
         {
             // Continuously update the highest Y point during the jump
             if (player.position.y > highestY)
@@ -51,6 +52,8 @@ public class JumpHeightScoring : MonoBehaviour
         if (fz.isCooking)
         {
             Debug.Log("Highest Jump Point: " + highestY);
+            haveUsed = true;
+
 
             // Implement score calculation or end game logic here
             CalculateScore(highestY);
@@ -67,6 +70,8 @@ public class JumpHeightScoring : MonoBehaviour
         {
             // Player leaves the zone, finalize the score based on highestY
             isInZone = false;
+            haveUsed = true;
+
             Debug.Log("Highest Jump Point: " + highestY);
 
             // Implement score calculation or end game logic here

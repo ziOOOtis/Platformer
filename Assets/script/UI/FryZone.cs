@@ -17,6 +17,8 @@ public class FryZone : MonoBehaviour
     public bool waterCooked;
     public int cookDuration; // well-heated pan will have less cook duration, so that less water will be losted.
 
+    [SerializeField] private Animator animator1,animator2;
+
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -43,6 +45,9 @@ public class FryZone : MonoBehaviour
         if ((other.gameObject.tag == "Player") && trigger.turOn)
         {
             isCooking = true;
+            animator1.enabled = true;
+            animator1.SetBool("isCook", true);
+            animator2.SetBool("isCook", true);
             switch (tm.heatStatus)
             {
 
