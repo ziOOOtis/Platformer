@@ -29,9 +29,10 @@ public class HeatTrigger : MonoBehaviour
             turOn = true;
             haveUsed=true;
 
-            timeManager.DoSLowmotion(0.1f); //try to slow down.
+            timeManager.DoSLowmotion(0.5f); //try to slow down.
 
             animator.SetBool("turnOn", true);
+            
 
 
             tm.countUp = true;

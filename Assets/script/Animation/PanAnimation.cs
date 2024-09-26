@@ -9,7 +9,7 @@ public class PanAnimation : MonoBehaviour
 
     void Update()
     {
-        isHeated = ht.turOn && ht2.turOn;
+        isHeated = ht.turOn || ht2.turOn;
 
         //if (isJump==0)
 

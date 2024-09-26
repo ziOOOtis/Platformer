@@ -9,25 +9,25 @@ public class FryZone : MonoBehaviour
     public Timer tm;
     public HeatTrigger trigger;
 
-    // [SerializeField] Gradient gradient;
 
-    // [SerializeField] MeshRenderer rend;
 
     public bool isCooking;
     public bool waterCooked;
     public int cookDuration; // well-heated pan will have less cook duration, so that less water will be losted.
 
     [SerializeField] private Animator animator1,animator2;
+    [SerializeField] private GameObject smoke;
 
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        waterCooked=false;  
+        waterCooked=false;
+        smoke.gameObject.SetActive(false);
 
         //rend = GetComponent<MeshRenderer>();
- 
+
 
 
     }
@@ -45,6 +45,7 @@ public class FryZone : MonoBehaviour
         if ((other.gameObject.tag == "Player") && trigger.turOn)
         {
             isCooking = true;
+            smoke.gameObject.SetActive(true);
             animator1.enabled = true;
             animator1.SetBool("isCook", true);
             animator2.SetBool("isCook", true);
