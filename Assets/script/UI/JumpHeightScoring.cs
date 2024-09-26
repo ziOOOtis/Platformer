@@ -23,7 +23,7 @@ public class JumpHeightScoring : MonoBehaviour
 
     private void Start()
     {
-        DontDestroyOnLoad(gameObject);
+       
     }
     void OnTriggerEnter(Collider other)
     {
