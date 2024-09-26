@@ -1,6 +1,8 @@
 using System.Drawing;
 using Unity.VisualScripting;
 using UnityEngine;
+using System.Collections;
+using UnityEngine.SceneManagement;
 
 public class FryZone : MonoBehaviour
 {
@@ -14,9 +16,11 @@ public class FryZone : MonoBehaviour
     public bool isCooking;
     public bool waterCooked;
     public int cookDuration; // well-heated pan will have less cook duration, so that less water will be losted.
+    bool practice = false;
 
     [SerializeField] private Animator animator1,animator2;
     [SerializeField] private GameObject smoke;
+    [SerializeField] private GameObject practicePage;
 
 
 
@@ -25,6 +29,7 @@ public class FryZone : MonoBehaviour
     {
         waterCooked=false;
         smoke.gameObject.SetActive(false);
+        practicePage.gameObject.SetActive(false);
 
         //rend = GetComponent<MeshRenderer>();
 
@@ -51,6 +56,13 @@ public class FryZone : MonoBehaviour
             animator1.enabled = true;
             animator1.SetBool("isCook", true);
             animator2.SetBool("isCook", true);
+
+            if (practice==false)
+            {
+                StartCoroutine(LoadPage());
+                practice = true;
+            }
+
             switch (tm.heatStatus)
             {
 
@@ -83,4 +95,13 @@ public class FryZone : MonoBehaviour
         }
 
     }
+
+    private IEnumerator LoadPage()
+    {
+        yield return new WaitForSeconds(3f);
+        practicePage.gameObject.SetActive(true);
+        
+    }
 }
+
+

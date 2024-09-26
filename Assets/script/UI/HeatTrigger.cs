@@ -6,6 +6,7 @@ public class HeatTrigger : MonoBehaviour
     public GameObject trigger;
     public Timer tm;
     public GameObject jumpScoreZone;
+    public GameObject lightning;
 
     [SerializeField] private BoxCollider bc;
     public TimeManager timeManager;//slower time
@@ -20,6 +21,7 @@ public class HeatTrigger : MonoBehaviour
     {
         bc = GetComponent<BoxCollider>();
         jumpScoreZone.gameObject.SetActive(false);
+        lightning.gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter(Collider other)
@@ -38,6 +40,7 @@ public class HeatTrigger : MonoBehaviour
             tm.countUp = true;
             tm.HeatingUp();
             jumpScoreZone.gameObject.SetActive(true);
+            lightning.gameObject.SetActive(true);
 
 
 
