@@ -7,7 +7,7 @@ public class FryZone : MonoBehaviour
 
     public GameObject fryZone;
     public Timer tm;
-    public HeatTrigger trigger;
+    public HeatTrigger trigger1, trigger2;
 
 
 
@@ -41,8 +41,10 @@ public class FryZone : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        
-        if ((other.gameObject.tag == "Player") && trigger.turOn)
+        bool tiggerON = trigger1.turOn || trigger2.turOn;
+
+
+        if ((other.gameObject.tag == "Player") && tiggerON)
         {
             isCooking = true;
             smoke.gameObject.SetActive(true);

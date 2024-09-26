@@ -11,13 +11,14 @@ public class Timer : MonoBehaviour
     public Slider slider;
     [SerializeField] Gradient gradient;
     [SerializeField] Image fill;
+    [SerializeField] private GameObject smoke;
 
     public float heatingTime;
-    [SerializeField] float maxHeatTime = 20;
+    [SerializeField] float maxHeatTime = 25;
     public bool countUp;
     public int heatStatus;
 
-    float waitingTimes = 2f;
+    float waitingTimes = 3f;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -25,6 +26,7 @@ public class Timer : MonoBehaviour
     {
         slider.minValue = 0;
         slider.maxValue = maxHeatTime;
+        smoke.gameObject.SetActive(false);
 
         fill.color = gradient.Evaluate(0); //set the color of beginning.
     }
@@ -34,7 +36,7 @@ public class Timer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (heatingTime <= 20)
+        if (heatingTime <= 25)
         {
             HeatingUp();
             HeatingStatus();
@@ -73,6 +75,7 @@ public class Timer : MonoBehaviour
         else if(slider.normalizedValue > 0.75)
         {
             heatStatus = 3; //the pan is heat good!
+            smoke.gameObject.SetActive(true);
         }
         else { heatStatus = 2; } //the pan is heat enough
     }

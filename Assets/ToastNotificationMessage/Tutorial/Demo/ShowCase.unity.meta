@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 4ca4f87245d0c224996e9124df9c2be7
+DefaultImporter:
+  externalObjects: {}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 278006
+  packageName: Toast Notification Message
+  packageVersion: 1.1
+  assetPath: Assets/ToastNotificationMessage/Tutorial/Demo/ShowCase.unity
+  uploadId: 656756
