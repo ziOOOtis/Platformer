@@ -294,7 +294,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.095452115, g: 0.1106504, b: 0.122641504, a: 1}
+  m_Color: {r: 0.2264151, g: 0.17565851, b: 0.14204344, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1535,11 +1535,23 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3750621575505508368, guid: ed11e993ff9a5f54996ddd0700291bbb, type: 3}
       propertyPath: m_fontSize
-      value: 48
+      value: 50
       objectReference: {fileID: 0}
     - target: {fileID: 3750621575505508368, guid: ed11e993ff9a5f54996ddd0700291bbb, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
+    - target: {fileID: 3750621575505508368, guid: ed11e993ff9a5f54996ddd0700291bbb, type: 3}
       propertyPath: m_fontSizeBase
-      value: 48
+      value: 50
+      objectReference: {fileID: 0}
+    - target: {fileID: 3750621575505508368, guid: ed11e993ff9a5f54996ddd0700291bbb, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 2140474, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
+    - target: {fileID: 3750621575505508368, guid: ed11e993ff9a5f54996ddd0700291bbb, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5071674802316339048, guid: ed11e993ff9a5f54996ddd0700291bbb, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
