@@ -18,4 +18,6 @@ public class TimeManager : MonoBehaviour
         Time.fixedDeltaTime = Time.timeScale * .02f ;
     }
 
+
+
 }   
