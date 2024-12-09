@@ -251,12 +251,20 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3657494734492927652, guid: 7d1e211757fb5734286a7cb30b34d35c, type: 3}
+      propertyPath: notEnoughtime
+      value: 0.6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3657494734492927652, guid: 7d1e211757fb5734286a7cb30b34d35c, type: 3}
       propertyPath: waterJumpChance
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3657494734492927652, guid: 7d1e211757fb5734286a7cb30b34d35c, type: 3}
       propertyPath: normalJumpHeight
-      value: 1
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3657494734492927652, guid: 7d1e211757fb5734286a7cb30b34d35c, type: 3}
+      propertyPath: buttonPressWindow
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 3657494734492927652, guid: 7d1e211757fb5734286a7cb30b34d35c, type: 3}
       propertyPath: groundLayer.m_Bits

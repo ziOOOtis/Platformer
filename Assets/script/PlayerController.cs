@@ -72,7 +72,7 @@ public class PlayerController : MonoBehaviour
         isometricDirection = _input.ToIso().normalized;
 
         // Move the character using the isometric direction
-        Vector3 moveDirection = isometricDirection * _speed * Time.deltaTime;
+        Vector3 moveDirection = isometricDirection * _speed * SpeedScale * Time.deltaTime; // NEW with speed on sky
 
         // Apply the movement
         _rb.MovePosition(transform.position + moveDirection);
