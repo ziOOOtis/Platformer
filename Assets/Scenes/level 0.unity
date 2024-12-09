@@ -11818,7 +11818,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4882361143394079009, guid: 4729b701f8a44f54cae27bdd04f77e56, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.05
+      value: 2.57
       objectReference: {fileID: 0}
     - target: {fileID: 4882361143394079009, guid: 4729b701f8a44f54cae27bdd04f77e56, type: 3}
       propertyPath: m_LocalPosition.y
@@ -11826,7 +11826,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4882361143394079009, guid: 4729b701f8a44f54cae27bdd04f77e56, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.21
+      value: -0.87
       objectReference: {fileID: 0}
     - target: {fileID: 4882361143394079009, guid: 4729b701f8a44f54cae27bdd04f77e56, type: 3}
       propertyPath: m_LocalRotation.w
@@ -11874,6 +11874,14 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4990018205457536243, guid: 4729b701f8a44f54cae27bdd04f77e56, type: 3}
       propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7551296162282640291, guid: 4729b701f8a44f54cae27bdd04f77e56, type: 3}
+      propertyPath: m_UseGravity
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7551296162282640291, guid: 4729b701f8a44f54cae27bdd04f77e56, type: 3}
+      propertyPath: m_CollisionDetection
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8008297870717287062, guid: 4729b701f8a44f54cae27bdd04f77e56, type: 3}
