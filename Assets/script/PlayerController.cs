@@ -15,6 +15,10 @@ public class PlayerController : MonoBehaviour
 
     public Vector3 _input;
 
+    //----------------------------New------------adjust the movment in sky------------------
+    private float SpeedScale = 1;
+    public float slowerSpeed = 0.3f;
+
     private void Start()
     {
         _rb = GetComponent<Rigidbody>();
@@ -27,6 +31,15 @@ public class PlayerController : MonoBehaviour
         magnitude = _input.magnitude;
         magnitude = Mathf.Clamp01(magnitude);
         //filter.mesh = cookedMesh;
+
+        if (UnityEngine.Input.GetButton("Jump"))
+        {
+            SpeedScale = slowerSpeed;
+        }
+        else
+        {
+            SpeedScale = 1f;
+        }
 
     }
 
@@ -59,7 +72,7 @@ public class PlayerController : MonoBehaviour
         isometricDirection = _input.ToIso().normalized;
 
         // Move the character using the isometric direction
-        Vector3 moveDirection = isometricDirection * _speed * Time.deltaTime;
+        Vector3 moveDirection = isometricDirection * _speed * SpeedScale * Time.deltaTime; // NEW with speed on sky
 
         // Apply the movement
         _rb.MovePosition(transform.position + moveDirection);

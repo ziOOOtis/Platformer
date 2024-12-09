@@ -11,7 +11,8 @@ public class JumpHeightScoring : MonoBehaviour
 
     public TimeManager timeManager;//slower time
 
-    float waitingTimes = 5f;
+    float waitingTimes = 6f;
+
 
 
 
@@ -22,7 +23,7 @@ public class JumpHeightScoring : MonoBehaviour
 
     private void Start()
     {
-        DontDestroyOnLoad(gameObject);
+       
     }
     void OnTriggerEnter(Collider other)
     {

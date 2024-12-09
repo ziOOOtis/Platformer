@@ -4,6 +4,7 @@ using System.Collections;
 public class EnemyZone : MonoBehaviour
 {
     public GameObject AirPrefab; // Reference to the water prefab
+    public GameObject Enemy;
     public float respawnTime = 2f;  // Time to respawn the water after destruction
 
     private GameObject currentAir; // Holds reference to the current water object
@@ -12,16 +13,14 @@ public class EnemyZone : MonoBehaviour
     void Start()
     {
         // Store the initial spawn position
-        spawnPosition = transform.position ;
+        spawnPosition = Enemy.transform.position ;
 
     }
 
     // This method spawns the water
     private void SpawnAir()
     {
-        currentAir = Instantiate(AirPrefab, spawnPosition, Quaternion.identity);
-        // Assign ourselves as the water spawner that belongs to this water
-        currentAir.GetComponent<WarmAirDamage>().ez = this;
+        Enemy.gameObject.SetActive(true);
 
     }
 

@@ -293,8 +293,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   patrolPoints:
-  - {fileID: 7917481757217279155, guid: 37cb4598ae51afd4587f6d11d9e6843a, type: 3}
-  - {fileID: 2194355866557740782, guid: 18435fcaa3854a04daf7e35b4d0eb0d7, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
   targetPoint: 0
   speed: 1
   flipSpeed: 720

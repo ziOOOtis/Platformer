@@ -40,7 +40,11 @@ public class GameManager : MonoBehaviour
         return spiceScore;
     }
 
+    public void PauseTime()
+    {
+        Time.timeScale = 0;
 
+    }
 
 
 }

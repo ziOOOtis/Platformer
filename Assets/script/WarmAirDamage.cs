@@ -25,7 +25,7 @@ public class WarmAirDamage : MonoBehaviour
             other.GetComponent<PhysicsJump>().LostWater(this);
 
             // Destroy the water object
-            Destroy(gameObject);
+            warmAir.gameObject.SetActive(false);
 
         }
     }
