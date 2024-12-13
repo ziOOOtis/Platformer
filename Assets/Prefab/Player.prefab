@@ -260,7 +260,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3657494734492927652, guid: 7d1e211757fb5734286a7cb30b34d35c, type: 3}
       propertyPath: normalJumpHeight
-      value: 0.5
+      value: 0.7
       objectReference: {fileID: 0}
     - target: {fileID: 3657494734492927652, guid: 7d1e211757fb5734286a7cb30b34d35c, type: 3}
       propertyPath: buttonPressWindow

@@ -45,6 +45,7 @@ public class FryZone : MonoBehaviour
     void Update()
     {
         //rend.material.SetColor("Color", gradient.Evaluate(tm.slider.normalizedValue));
+
     }
 
 
@@ -52,6 +53,7 @@ public class FryZone : MonoBehaviour
     {
         bool tiggerON = trigger1.turOn || trigger2.turOn;
 
+        practice = GameManager.GetPractice();
 
         if ((other.gameObject.tag == "Player") && tiggerON)
         {
@@ -66,8 +68,9 @@ public class FryZone : MonoBehaviour
             {
                 StartCoroutine(LoadPage());
                 practice = true;
-                GameManager.SetSpiceScore(0);//resect the number of spice
-                spice.spiceIndex = 0;//reset the spice index
+                GameManager.SetPractice(practice);
+                GameManager.SetSpiceScore(0);
+
 
             }
 

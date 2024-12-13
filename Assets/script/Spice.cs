@@ -4,7 +4,7 @@ using System.Collections; // Add this line for IEnumerator and coroutines
 public class Spice : MonoBehaviour
 {
     public bool getSpice = false;
-    public int spiceIndex;
+    public int spiceIndex = 0;
     public GameObject player;
     public GameObject trigger;
     public GameObject lid;
@@ -17,9 +17,9 @@ public class Spice : MonoBehaviour
     [SerializeField] private GameObject smoke;
     public TimeManager timeManager;//slower time
 
-    private void Start()
+    private void Awake()
     {
-
+        
         originalScale = lid.transform.localScale; // Save the original scale 
         originalPosition = lid.transform.localPosition; // Save the original scale 
 
@@ -54,6 +54,7 @@ public class Spice : MonoBehaviour
 
         }
     }
+
 
 
 
