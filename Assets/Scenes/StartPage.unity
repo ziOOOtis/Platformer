@@ -394,8 +394,8 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1761378529}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.1, y: 0.32}
-  m_AnchorMax: {x: 0.9, y: 1}
+  m_AnchorMin: {x: 0.12, y: 0.32}
+  m_AnchorMax: {x: 0.88, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -1576,7 +1576,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.764151, g: 0.74064344, b: 0.6740388, a: 1}
+  m_Color: {r: 0.9960785, g: 0.9686275, b: 0.9058824, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -1618,6 +1618,18 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 11400000, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
     - target: {fileID: 3750621575505508368, guid: ed11e993ff9a5f54996ddd0700291bbb, type: 3}
+      propertyPath: m_fontColor.b
+      value: 0.16862746
+      objectReference: {fileID: 0}
+    - target: {fileID: 3750621575505508368, guid: ed11e993ff9a5f54996ddd0700291bbb, type: 3}
+      propertyPath: m_fontColor.g
+      value: 0.7137255
+      objectReference: {fileID: 0}
+    - target: {fileID: 3750621575505508368, guid: ed11e993ff9a5f54996ddd0700291bbb, type: 3}
+      propertyPath: m_fontColor.r
+      value: 0.9725491
+      objectReference: {fileID: 0}
+    - target: {fileID: 3750621575505508368, guid: ed11e993ff9a5f54996ddd0700291bbb, type: 3}
       propertyPath: m_fontSizeBase
       value: 50
       objectReference: {fileID: 0}
@@ -1625,6 +1637,10 @@ PrefabInstance:
       propertyPath: m_sharedMaterial
       value: 
       objectReference: {fileID: 2140474, guid: 8a89fa14b10d46a99122fd4f73fca9a2, type: 2}
+    - target: {fileID: 3750621575505508368, guid: ed11e993ff9a5f54996ddd0700291bbb, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4281054968
+      objectReference: {fileID: 0}
     - target: {fileID: 3750621575505508368, guid: ed11e993ff9a5f54996ddd0700291bbb, type: 3}
       propertyPath: m_hasFontAssetChanged
       value: 0

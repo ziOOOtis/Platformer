@@ -19,7 +19,7 @@ public class GroundProjection : MonoBehaviour
 
             // Adjust the marker's size based on distance
             float distance = hit.distance; // Distance from character to ground
-            float scale = Mathf.Lerp(maxScale, minScale, distance / 3.5f); // Scale smoothly based on distance
+            float scale = Mathf.Lerp(maxScale, minScale, distance / 1f); // Scale smoothly based on distance
             projectionMarker.transform.localScale = new Vector3(scale, scale, scale);
 
             // Make the marker visible

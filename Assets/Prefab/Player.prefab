@@ -220,7 +220,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3449176120434276673, guid: 7d1e211757fb5734286a7cb30b34d35c, type: 3}
       propertyPath: m_Name
-      value: meatball Variant
+      value: Player
       objectReference: {fileID: 0}
     - target: {fileID: 3449176120434276673, guid: 7d1e211757fb5734286a7cb30b34d35c, type: 3}
       propertyPath: m_TagString
@@ -345,6 +345,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 3449176120434276673, guid: 7d1e211757fb5734286a7cb30b34d35c, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2297155800219076177}
+    - targetCorrespondingSourceObject: {fileID: 3449176120434276673, guid: 7d1e211757fb5734286a7cb30b34d35c, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 274985337954587712}
   m_SourcePrefab: {fileID: 100100000, guid: 7d1e211757fb5734286a7cb30b34d35c, type: 3}
 --- !u!114 &902540994842739526 stripped
 MonoBehaviour:
@@ -397,3 +400,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 4531126513161292595}
   pj: {fileID: 8008297870717287062}
+--- !u!114 &274985337954587712
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8231690643134498163}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 937a3e411a9c59246a6cc22c37bd5510, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  groundLayer:
+    serializedVersion: 2
+    m_Bits: 1
+  projectionMarker: {fileID: 3542802184021655918, guid: 04c6fd2381b9b4f4c96fc6f159eb5a8f, type: 3}
+  maxScale: 1
+  minScale: 0.3

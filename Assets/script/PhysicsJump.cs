@@ -8,6 +8,7 @@ public class PhysicsJump : MonoBehaviour
     private Rigidbody rb;
     [SerializeField] private LayerMask groundLayer; // Specify ground
     public bool isGround = false;
+    
 
     // New scripts for modify jumping and falling
     public float gravityScale = 1.0f;// SCALE
@@ -41,6 +42,7 @@ public class PhysicsJump : MonoBehaviour
 
 
     public bool isWaterJumping = false; // Flag for water jump
+    public bool isDoubleJump = false;
 
 
     void Start()
@@ -96,6 +98,7 @@ public class PhysicsJump : MonoBehaviour
                     Jump();
                     jumpIndex++;
                     isGround = false;
+                    isDoubleJump = true;
                     jumpChance--;
                 }
 
@@ -113,6 +116,8 @@ public class PhysicsJump : MonoBehaviour
                         buttonPressedTime = buttonPressWindow; //the steak is not on ground so it should be affected by pressing time
                         Jump();
                         isWaterJumping = true; // Start water jump rotation
+                        isDoubleJump = true;
+
 
                         isGround = false;
                         waterJumpChance--;
@@ -143,6 +148,7 @@ public class PhysicsJump : MonoBehaviour
 
 
             gravity = globalGravity * fallGravityScale * Vector3.up;
+            
 
         }
 
@@ -174,6 +180,7 @@ public class PhysicsJump : MonoBehaviour
         {
             isGround = true;
             isWaterJumping = false;
+            isDoubleJump = false;
             jumpChance = maxJumpChance; // Reset to max jumps when landing
             jumpHeight = normalJumpHeight; // Reset jump height to normal
             speedMultiplier = 1; // reset speed multiplier every time when landed.

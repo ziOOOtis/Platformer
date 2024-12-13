@@ -55,6 +55,8 @@ public class Spice : MonoBehaviour
         }
     }
 
+
+
     private IEnumerator SqueezeAndStretch()
     {
         // Squeeze the tomato (shrink on Y-axis, stretch on X/Z-axis)

@@ -24,20 +24,23 @@ public class WaterJumpAnimation : MonoBehaviour
                 animator.SetBool("Squeeze", true);
                 //Debug.Log("Squeeze");
             }
-            else if (UnityEngine.Input.GetButtonUp("Jump"))
+            else
             {
-                animator.SetBool("Squeeze", false);
+            animator.SetBool("Squeeze", false);
             }
 
-        if (pj.isWaterJumping == true)
+
+
+        if (pj.isDoubleJump == true)
         {
-            animator.SetBool("isWaterJumping", true);
+            animator.SetBool("isDoubleJumping",true);
             //Debug.Log("waterJumping");
         }
         else
         {
-            animator.SetBool("isWaterJumping", false);
+            animator.SetBool("isDoubleJumping", false);
         }
+
 
 
 
@@ -46,7 +49,7 @@ public class WaterJumpAnimation : MonoBehaviour
             animator.SetBool("isGround", true);
             //animator.SetBool("isWaterJumping", false);
         }
-        animator.SetBool("isWaterJumping", pj.isWaterJumping);
 
+        animator.SetBool("isDoubleJumping", pj.isDoubleJump);
     }
 }
